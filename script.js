@@ -1,5 +1,5 @@
-const resume_btn1 = document.getElementById("resume-button-1")
-const resume_btn2 = document.getElementById("resume-button-2")
+const resume_btn1 = document.getElementById("resume-link-1")
+const resume_btn2 = document.getElementById("resume-link-2")
 const resume_btn3 = document.getElementById("resume-button")
 
 resume_btn1.addEventListener("click", (e) => {
@@ -31,7 +31,7 @@ resume_btn3.addEventListener("click", (e) => {
     const resume_btn2 = document.querySelector("#resume-button-1");
     resume_btn2.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "resume/Konark-Kumar-Resume.pdf";
+      window.location.href = "resume/pranay_paul_resume.pdf";
     });
   });
 document.addEventListener('DOMContentLoaded', function() {
