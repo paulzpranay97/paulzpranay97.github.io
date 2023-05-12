@@ -56,7 +56,7 @@
             <a class="nav-link contact text-light" href="#contacts" id="contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link resume text-light" target="_blank" download="pranay_paul_resume.pdf" id="resume-link-1" href="resume/pranay_paul_resume.pdf">Resume</a>
+            <button id="resume-button-1" onclick="openResume('pranay_paul_resume.pdf')">Open Resume</button>
           </li>
         </ul>
         <!-- Left links -->
@@ -94,9 +94,7 @@
         <a href="https://www.linkedin.com/in/pranay-paul-6a5220257//" id="contact-linkedin" target="_blank"><i
             class="fa fa-linkedin"></i></a>
         <br><br>
-        <a id="resume-link-2" href="resume/pranay_paul_resume.pdf" target="_blank" download="pranay_paul_resume.pdf" class="resume-btn">
-          Download Resume
-        </a>
+        <button id="resume-button-2" onclick="openResume('pranay_paul_resume.pdf')">Open Resume</button>
       </div>
     </div>
   </div>
@@ -158,9 +156,21 @@
         HTML, CSS, JavaScript, Node.js, MongoDB, and Express. With my education and expertise, I have a strong
         foundation for building end-to-end web applications that incorporate both front-end and back-end development.
       </p>
-      <a href="resume/pranay_paul_resume.pdf" download="pranay_paul_resume.pdf" id="resume-button-2" class="resume-btn">
-        Download Resume
-       </a>
+      <button id="resume-button-2" onclick="openResume('pranay_paul_resume.pdf')">Download Resume</button>
+
+      
+        <script>
+        function openResume(resumePath) {
+          
+          window.open(resumePath, '_blank');
+        
+          
+          var link = document.createElement('a');
+          link.href = resumePath;
+          link.download = 'resume.pdf';
+          link.click();
+          }
+        </script>
     </div>
     <div id="about-section-info">
       <div>
