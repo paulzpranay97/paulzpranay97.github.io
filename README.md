@@ -1,2 +1,1 @@
-# paulzpranay97.github.io
-My Portfolio 
+#TruptimayeePanigrahy.github.io
