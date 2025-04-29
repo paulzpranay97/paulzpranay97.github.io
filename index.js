@@ -63,12 +63,12 @@ $(document).ready(function(){
 
 document.getElementById("resume-link-1").onclick = () => {
   window.open(
-    "https://drive.google.com/file/d/10gvAa0C0i-Y7SNIhBvJ2ePrKcLsT4K4A/view?usp=drive_link"
+    "/pranay_paul_resume.pdf"
   );
 };
 
 document.getElementById("resume-link-2").onclick = () => {
   window.open(
-    "https://drive.google.com/file/d/10gvAa0C0i-Y7SNIhBvJ2ePrKcLsT4K4A/view?usp=drive_link"
+    "/pranay_paul_resume.pdf"
   );
 };
