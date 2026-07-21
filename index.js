@@ -1,74 +1,90 @@
-$(document).ready(function(){
-  $(window).scroll(function(){
-      if(this.scrollY > 20){
-          $('#main-nav').addClass("sticky");
-      }else{
-          $('#main-nav').removeClass("sticky");
-      }
-      
-  })
+const nav = document.getElementById('main-nav');
+const menuBtn = document.querySelector('.menu-btn');
+const menu = document.querySelector('.menu');
+const revealItems = document.querySelectorAll('.reveal');
+const heroCard = document.querySelector('.hero-card');
+const heroSection = document.querySelector('.hero');
 
-  // togel/menu nevbar script
-  $('.menu-btn').click(function(){
-      $('#main-nav .menu').toggleClass("active");
-      $('.menu-btn i').toggleClass("active");
-  });
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
 
-  $('.menu li a').click(function(){
-      $('#main-nav .menu').toggleClass("active");
-      $('.menu-btn i').toggleClass("active");
-  });
-
-  //   typing animation script 
-     var typed = new Typed (".panku",{
-      strings:["Full-Stack Web-Developer", "Node-js Backend Devloper"],
-      typeSpeed:100,
-      backSpeed:60,
-      loop:true
-     })
-
-
-     var typed = new Typed (".panku2",{
-      strings:["Full-Stack Web-Developer", "Node-js Backend Devloper"],
-      typeSpeed:100,
-      backSpeed:60,
-      loop:true
-     });
-
-  // owl carousel script
-  $('.carousel').owlCarousel({
-       margin:20,
-       loop:true,
-       autoplayTimeOut:2000,
-       autoplayHoverPause:true,
-       responsive:{
-          0:{
-              items:1,
-              nav:false
-          },
-          600:{
-              items:2,
-              nav:false
-          },
-          1000:{
-              items:3,
-              nav:false
-          }
-       }
-  })
-
+  if (heroSection) {
+    const offset = window.scrollY * 0.12;
+    heroSection.style.setProperty('--hero-shift', `${offset}px`);
+  }
 });
 
-// resume section 
+menuBtn?.addEventListener('click', () => {
+  menu?.classList.toggle('active');
+});
 
-document.getElementById("resume-link-1").onclick = () => {
-  window.open(
-    "/pranay_paul_resume.pdf"
-  );
-};
+document.querySelectorAll('.menu a').forEach((link) => {
+  link.addEventListener('click', () => {
+    menu?.classList.remove('active');
+  });
+});
 
-document.getElementById("resume-link-2").onclick = () => {
-  window.open(
-    "/pranay_paul_resume.pdf"
-  );
-};
+if (typeof Typed !== 'undefined') {
+  new Typed('.panku', {
+    strings: ['a Full Stack Developer', 'a React & Node.js Builder', 'an AI-assisted Product Engineer'],
+    typeSpeed: 70,
+    backSpeed: 40,
+    loop: true,
+  });
+}
+
+heroCard?.addEventListener('mousemove', (event) => {
+  const rect = heroCard.getBoundingClientRect();
+  const x = (event.clientX - rect.left) / rect.width - 0.5;
+  const y = (event.clientY - rect.top) / rect.height - 0.5;
+  heroCard.style.setProperty('--tilt-x', `${y * -10}deg`);
+  heroCard.style.setProperty('--tilt-y', `${x * 10}deg`);
+});
+
+heroCard?.addEventListener('mouseleave', () => {
+  heroCard.style.setProperty('--tilt-x', '0deg');
+  heroCard.style.setProperty('--tilt-y', '0deg');
+});
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+revealItems.forEach((item) => observer.observe(item));
+
+const resumeLinks = ['resume-link-1', 'resume-link-2'];
+resumeLinks.forEach((id) => {
+  const el = document.getElementById(id);
+  el?.addEventListener('click', () => {
+    window.open('./pranay_paul_resume_v1.pdf', '_blank', 'noopener,noreferrer');
+  });
+});
+
+const projectToggles = document.querySelectorAll('.project-toggle');
+projectToggles.forEach((toggle) => {
+  toggle.addEventListener('click', () => {
+    const targetId = toggle.dataset.target;
+    const activeList = document.querySelector(`#${targetId}`);
+
+    if (!activeList) return;
+
+    document.querySelectorAll('.project-list').forEach((list) => {
+      list.classList.toggle('hidden', list.id !== targetId);
+    });
+
+    projectToggles.forEach((button) => {
+      button.classList.toggle('active', button === toggle);
+    });
+  });
+});
