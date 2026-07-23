@@ -205,7 +205,7 @@ main {
     transform: translateX(-50px);
     animation: reveal-left-kf linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 35%;
+    animation-range: entry 0% entry 100%;
   }
 
   .reveal-right {
@@ -213,7 +213,7 @@ main {
     transform: translateX(50px);
     animation: reveal-right-kf linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 35%;
+    animation-range: entry 0% entry 100%;
   }
 
   .reveal-up {
@@ -222,7 +222,7 @@ main {
     filter: blur(6px);
     animation: reveal-up-kf linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
+    animation-range: entry 0% entry 100%;
     animation-delay: calc(var(--d, 0) * 60ms);
   }
 
@@ -231,7 +231,7 @@ main {
     transform: scale(0.82) rotate(-2deg);
     animation: reveal-scale-kf linear both;
     animation-timeline: view();
-    animation-range: entry 0% cover 45%;
+    animation-range: entry 0% entry 100%;
     animation-delay: calc(var(--d, 0) * 60ms);
   }
 }
@@ -289,12 +289,13 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(56, 58, 66, -2.2);
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 24px;
   padding: 14px 18px;
   box-shadow: 0 12px 35px rgba(1, 7, 18, 0.4);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(26px) saturate(105%);
+  -webkit-backdrop-filter: blur(26px) saturate(105%);
   position: relative;
 }
 
