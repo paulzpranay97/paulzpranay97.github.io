@@ -351,14 +351,22 @@ main {
   transition: transform 0.3s ease;
 }
 
-.menu a:hover,
 .menu a:focus-visible {
   color: var(--accent);
 }
 
-.menu a:hover::after,
 .menu a:focus-visible::after {
   transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .menu a:hover {
+    color: var(--accent);
+  }
+
+  .menu a:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .resume-item {
@@ -378,9 +386,12 @@ main {
   display: none;
 }
 
-.resume-item a:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .resume-item a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
+    will-change: transform;
+  }
 }
 
 .resume-link {
@@ -462,12 +473,15 @@ main {
   z-index: 0;
 }
 
-.btn:hover::before {
-  transform: translateX(120%);
-}
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover::before {
+    transform: translateX(120%);
+  }
 
-.btn:hover {
-  transform: translateY(-3px);
+  .btn:hover {
+    transform: translateY(-3px);
+    will-change: transform;
+  }
 }
 
 .btn:focus-visible {
@@ -626,9 +640,12 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.highlight-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 210, 255, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.4);
+    will-change: transform;
+  }
 }
 
 .highlight-card strong {
@@ -669,17 +686,20 @@ main {
   pointer-events: none;
 }
 
-.hero-card:hover::before {
-  opacity: 1;
-}
-
 @keyframes spin-border {
   to { transform: rotate(360deg); }
 }
 
-.hero-card:hover {
-  transform: translateY(-8px) rotateX(2deg);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.42);
+@media (hover: hover) and (pointer: fine) {
+  .hero-card:hover::before {
+    opacity: 1;
+  }
+
+  .hero-card:hover {
+    transform: translateY(-8px) rotateX(2deg);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.42);
+    will-change: transform;
+  }
 }
 
 .hero-image-wrap {
@@ -699,8 +719,10 @@ main {
   transition: transform 0.4s ease;
 }
 
-.hero-card:hover .hero-image {
-  transform: scale(1.03);
+@media (hover: hover) and (pointer: fine) {
+  .hero-card:hover .hero-image {
+    transform: scale(1.03);
+  }
 }
 
 .hero-card-label {
@@ -850,8 +872,10 @@ main {
   transition: transform 0.5s ease;
 }
 
-.about-image:hover img {
-  transform: scale(1.02) rotate(-1deg);
+@media (hover: hover) and (pointer: fine) {
+  .about-image:hover img {
+    transform: scale(1.02) rotate(-1deg);
+  }
 }
 
 .about-intro {
@@ -879,9 +903,12 @@ main {
   transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
-.about-facts div:hover {
-  border-color: rgba(0, 210, 255, 0.35);
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  .about-facts div:hover {
+    border-color: rgba(0, 210, 255, 0.35);
+    transform: translateX(4px);
+    will-change: transform;
+  }
 }
 
 .about-facts span {
@@ -909,10 +936,13 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.info-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 210, 255, 0.4);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+@media (hover: hover) and (pointer: fine) {
+  .info-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+  }
 }
 
 .card-index {
@@ -983,9 +1013,12 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.timeline-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(0, 210, 255, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .timeline-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 210, 255, 0.4);
+    will-change: transform;
+  }
 }
 
 .timeline-card::before {
@@ -1084,10 +1117,13 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.project-item:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0, 210, 255, 0.35);
-  box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32);
+@media (hover: hover) and (pointer: fine) {
+  .project-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 210, 255, 0.35);
+    box-shadow: 0 24px 55px rgba(0, 0, 0, 0.32);
+    will-change: transform;
+  }
 }
 
 .project-item.featured {
@@ -1146,13 +1182,15 @@ main {
   transition: transform 0.3s ease;
 }
 
-.project-links a:hover {
-  color: #fff;
-}
+@media (hover: hover) and (pointer: fine) {
+  .project-links a:hover {
+    color: #fff;
+  }
 
-.project-links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  .project-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 /* ============================================================
@@ -1176,10 +1214,13 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-group:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(0, 210, 255, 0.45);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+@media (hover: hover) and (pointer: fine) {
+  .skill-group:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(0, 210, 255, 0.45);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+    will-change: transform;
+  }
 }
 
 .skill-icon {
@@ -1206,8 +1247,10 @@ main {
   z-index: -1;
 }
 
-.skill-group:hover .skill-icon::before {
-  opacity: 0.9;
+@media (hover: hover) and (pointer: fine) {
+  .skill-group:hover .skill-icon::before {
+    opacity: 0.9;
+  }
 }
 
 .skill-icon img {
@@ -1218,8 +1261,10 @@ main {
   transition: filter 0.3s ease;
 }
 
-.skill-group:hover .skill-icon img {
-  filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.55));
+@media (hover: hover) and (pointer: fine) {
+  .skill-group:hover .skill-icon img {
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.55));
+  }
 }
 
 .skill-group h3 {
@@ -1303,9 +1348,12 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.contact-info-card:hover {
-  transform: translateX(6px);
-  border-color: rgba(0, 210, 255, 0.35);
+@media (hover: hover) and (pointer: fine) {
+  .contact-info-card:hover {
+    transform: translateX(6px);
+    border-color: rgba(0, 210, 255, 0.35);
+    will-change: transform;
+  }
 }
 
 .contact-icon {
@@ -1325,9 +1373,11 @@ main {
   height: 22px;
 }
 
-.contact-info-card:hover .contact-icon {
-  transform: scale(1.1) rotate(-6deg);
-  box-shadow: 0 0 16px rgba(0, 210, 255, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .contact-info-card:hover .contact-icon {
+    transform: scale(1.1) rotate(-6deg);
+    box-shadow: 0 0 16px rgba(0, 210, 255, 0.45);
+  }
 }
 
 .contact-info-card h4 {
